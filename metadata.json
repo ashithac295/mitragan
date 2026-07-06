@@ -1,0 +1,6 @@
+{
+  "name": "Mitragan",
+  "description": "The official digital headquarters of Mitragan—an elite design and software development studio specializing in precision full-stack engineering, immersive 3D interfaces, and digital brand architectures.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
