@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Sparkles, Shield } from "lucide-react";
+import { Sparkles, Shield, Sun, Moon } from "lucide-react";
 import { Tab } from "./types";
 import HomeView from "./components/HomeView";
 import ProjectsView from "./components/ProjectsView";
@@ -13,6 +13,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>(Tab.Home);
   const [isArchitectOpen, setIsArchitectOpen] = useState(false);
   const [prefilledJob, setPrefilledJob] = useState("");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   const handleSelectApply = (jobTitle: string) => {
     setPrefilledJob(jobTitle);
@@ -20,10 +21,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070709] bg-grid-pattern text-white flex flex-col font-sans selection:bg-white/20 selection:text-white">
+    <div className={`min-h-screen bg-[#070709] bg-grid-pattern text-white flex flex-col font-sans selection:bg-white/20 selection:text-white transition-colors duration-500 ${
+      theme === "light" ? "light-theme" : ""
+    }`}>
       
       {/* Navigation Header */}
-      <header className="sticky top-0 z-40 bg-[#070709]/80 backdrop-blur-md border-b border-white/5 px-4 md:px-8 py-4">
+      <header className="sticky top-0 z-40 bg-[#070709]/80 backdrop-blur-md border-b border-white/5 px-4 md:px-8 py-4 transition-colors duration-500">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <div 
@@ -33,7 +36,7 @@ export default function App() {
             }} 
             className="flex items-center gap-2 cursor-pointer group"
           >
-            <MitraganLogo showText={false} size={32} />
+            <MitraganLogo showText={false} size={32} theme={theme} />
             <span className="font-display font-medium tracking-[0.2em] text-sm text-white group-hover:text-white/80 transition-colors flex items-center">
               M I T R<span className="font-light mx-[0.05em] relative -top-[0.05em]">Λ</span>G<span className="font-light mx-[0.05em] relative -top-[0.05em]">Λ</span>N
             </span>
@@ -62,6 +65,24 @@ export default function App() {
 
           {/* Nav Actions */}
           <div className="flex items-center gap-3">
+            {/* Elegant Day/Night Theme Toggle */}
+            <button
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className={`p-2 rounded-xl border transition-all duration-300 flex items-center justify-center cursor-pointer hover:scale-[1.05] ${
+                theme === "light"
+                  ? "bg-black/5 border-black/10 text-black hover:bg-black/10"
+                  : "bg-[#0F0F12] border-white/10 text-white hover:bg-white/10 hover:border-white/20"
+              }`}
+              title={theme === "light" ? "Switch to Night Mode" : "Switch to Day Mode"}
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? (
+                <Moon className="w-4 h-4 text-[#070709]" />
+              ) : (
+                <Sun className="w-4 h-4 text-white" />
+              )}
+            </button>
+
             <button
               onClick={() => setIsArchitectOpen(true)}
               className="px-4 py-2 rounded-xl bg-[#0F0F12] hover:bg-white hover:text-black border border-white/10 hover:border-white/20 text-xs font-mono uppercase tracking-wider text-white font-medium transition-all duration-300 flex items-center gap-2 cursor-pointer hover:scale-[1.02]"
@@ -109,6 +130,7 @@ export default function App() {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 onOpenArchitect={() => setIsArchitectOpen(true)}
+                theme={theme}
               />
             )}
 
@@ -128,7 +150,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
           {/* Col 1: Branding Signature */}
           <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left justify-center md:justify-start">
-            <MitraganLogo showText={false} size={44} />
+            <MitraganLogo showText={false} size={44} theme={theme} />
             <div className="space-y-1">
               <span className="font-display font-medium tracking-[0.2em] text-sm text-white block">
                 M I T R<span className="font-light mx-[0.05em] relative -top-[0.05em]">Λ</span>G<span className="font-light mx-[0.05em] relative -top-[0.05em]">Λ</span>N STUDIO

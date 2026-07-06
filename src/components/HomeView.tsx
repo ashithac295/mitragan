@@ -8,9 +8,10 @@ import MitraganLogo from "./MitraganLogo";
 interface HomeViewProps {
   onNavigate: (tab: Tab) => void;
   onOpenArchitect: () => void;
+  theme?: "light" | "dark";
 }
 
-export default function HomeView({ onNavigate, onOpenArchitect }: HomeViewProps) {
+export default function HomeView({ onNavigate, onOpenArchitect, theme = "dark" }: HomeViewProps) {
   return (
     <div className="space-y-24 pb-16">
       {/* Hero Section */}
@@ -36,7 +37,7 @@ export default function HomeView({ onNavigate, onOpenArchitect }: HomeViewProps)
 
             {/* Brand Logo & Wordmark */}
             <div className="flex flex-col items-center lg:items-start py-2">
-              <MitraganLogo showText={true} size={110} align="responsive" className="scale-95 sm:scale-100 origin-center lg:origin-left" />
+              <MitraganLogo showText={true} size={110} align="responsive" className="scale-95 sm:scale-100 origin-center lg:origin-left" theme={theme} />
             </div>
 
             <p className="text-lg md:text-xl font-sans font-light text-gray-300 leading-relaxed">
@@ -78,7 +79,7 @@ export default function HomeView({ onNavigate, onOpenArchitect }: HomeViewProps)
               <div className="absolute -bottom-3 -left-3 w-10 h-10 border-b-2 border-l-2 border-white/20 pointer-events-none" />
               <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-white/20 pointer-events-none" />
 
-              <Mitragan3DCanvas />
+              <Mitragan3DCanvas theme={theme} />
             </div>
           </motion.div>
         </div>
@@ -143,7 +144,7 @@ export default function HomeView({ onNavigate, onOpenArchitect }: HomeViewProps)
               </p>
             </div>
             <div className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">
-              Integration:  API • Multi-modal • JSON Schema
+              Integration: Gemini API • Multi-modal • JSON Schema
             </div>
           </div>
 
