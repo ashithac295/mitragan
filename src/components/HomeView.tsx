@@ -84,10 +84,7 @@ export default function HomeView({ onNavigate, onOpenArchitect, theme = "dark" }
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-gray-500 text-[10px] uppercase font-mono tracking-widest pointer-events-none mt-12 lg:mt-0">
-          <span className="animate-bounce">↓</span> Scroll to explore
-        </div>
+       
       </section>
 
       {/* Philosophy Bento Grid */}

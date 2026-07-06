@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface MitraganLogoProps {
   className?: string;
@@ -15,9 +15,27 @@ export default function MitraganLogo({
   theme = "dark",
   align = "center",
 }: MitraganLogoProps) {
-  const strokeColor = theme === "dark" ? "currentColor" : "#000000";
-  const textColor = theme === "dark" ? "text-white" : "text-[#070709]";
-  const fillColor = theme === "dark" ? "#09090C" : "#ffffff";
+  const isDark = theme === "dark";
+  const textColor = isDark ? "text-white" : "text-[#070709]";
+
+  // List of possible paths where the user might upload their exact logo file.
+  const possiblePaths = [
+    "/mitragan_logo.png",
+    "/mitragan_logo.jpg",
+    "/logo.png",
+    "/logo.jpg",
+  ];
+
+  const [pathIndex, setPathIndex] = useState(0);
+  const [useSvgFallback, setUseSvgFallback] = useState(false);
+
+  const handleImageError = () => {
+    if (pathIndex < possiblePaths.length - 1) {
+      setPathIndex((prev) => prev + 1);
+    } else {
+      setUseSvgFallback(true);
+    }
+  };
 
   const alignContainerClass =
     align === "left"
@@ -39,6 +57,24 @@ export default function MitraganLogo({
       : align === "responsive"
       ? "justify-center lg:justify-start"
       : "justify-center";
+
+  if (showText && !useSvgFallback) {
+    return (
+      <div className={`flex flex-col ${alignContainerClass} ${className}`}>
+        <img
+          src={possiblePaths[pathIndex]}
+          alt="Mitragan Logo - Idea To Reality"
+          onError={handleImageError}
+          referrerPolicy="no-referrer"
+          className="rounded-2xl shadow-xl border border-zinc-200/50 max-w-full h-auto transition-all duration-300 hover:scale-[1.02]"
+          style={{ width: `${size * 3.2}px` }}
+        />
+      </div>
+    );
+  }
+
+  const strokeColor = isDark ? "currentColor" : "#000000";
+  const fillColor = isDark ? "#09090C" : "#ffffff";
 
   return (
     <div className={`flex flex-col ${alignContainerClass} ${className}`}>
