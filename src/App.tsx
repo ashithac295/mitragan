@@ -55,7 +55,7 @@ export default function App() {
                     : "text-gray-400 hover:text-white hover:bg-white/5"
                 }`}
               >
-                {tab === Tab.Join ? "Careers / Inquire" : tab}
+                {tab === Tab.Join ? "Join Mitragan" : tab}
               </button>
             ))}
           </nav>
