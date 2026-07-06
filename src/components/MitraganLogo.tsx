@@ -16,7 +16,7 @@ export default function MitraganLogo({
   align = "center",
 }: MitraganLogoProps) {
   const strokeColor = theme === "dark" ? "currentColor" : "#000000";
-  const textColor = theme === "dark" ? "text-white" : "text-black";
+  const textColor = theme === "dark" ? "text-white" : "text-[#070709]";
   const fillColor = theme === "dark" ? "#09090C" : "#ffffff";
 
   const alignContainerClass =

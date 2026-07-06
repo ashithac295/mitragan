@@ -42,3 +42,212 @@
   pointer-events: none;
 }
 
+/* Light Theme / Day Mode Overrides */
+.light-theme {
+  background-color: #f8f8fa !important;
+  color: #070709 !important;
+}
+
+/* All headers and footers */
+.light-theme header,
+.light-theme footer {
+  background-color: #f0f0f3 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Light Theme Navigation Pill and Items */
+.light-theme nav {
+  background-color: #e5e5eb !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-theme .text-gray-300 {
+  color: #1a1a24 !important;
+}
+
+.light-theme .text-gray-200 {
+  color: #070709 !important;
+}
+
+.light-theme .text-gray-400 {
+  color: #3f3f46 !important; /* zinc-700 */
+}
+
+.light-theme .text-gray-500 {
+  color: #71717a !important; /* zinc-500 */
+}
+
+.light-theme .text-gray-600 {
+  color: #a1a1aa !important; /* zinc-400 */
+}
+
+.light-theme .text-white {
+  color: #070709 !important;
+}
+
+.light-theme .text-white\/50,
+.light-theme .text-white\/60,
+.light-theme .text-white\/70,
+.light-theme .text-white\/80 {
+  color: rgba(7, 7, 9, 0.6) !important;
+}
+
+/* Typography styles */
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme h5,
+.light-theme h6 {
+  color: #070709 !important;
+}
+
+/* Grid overlay pattern */
+.light-theme .bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px) !important;
+}
+
+/* Glow Borders */
+.light-theme .glow-border::before {
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.02)) !important;
+}
+
+/* Card backgrounds mapping: `#09090C`, `#09090D`, `#0A0A0C`, `#0E0E12`, `#0F0F12`, etc. */
+.light-theme .bg-\[\#09090C\],
+.light-theme .bg-\[\#09090D\],
+.light-theme .bg-\[\#0A0A0C\],
+.light-theme .bg-\[\#0A0A0D\],
+.light-theme .bg-\[\#0E0E12\],
+.light-theme .bg-\[\#0F0F12\],
+.light-theme .bg-\[\#0C0C0F\],
+.light-theme .bg-\[\#111115\] {
+  background-color: #ffffff !important;
+  color: #070709 !important;
+}
+
+/* Inner inputs */
+.light-theme input,
+.light-theme select,
+.light-theme textarea {
+  background-color: #f3f4f6 !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #070709 !important;
+}
+
+.light-theme input[type="range"] {
+  background-color: #4b5563 !important; /* solid dark grey for slider track */
+}
+
+.light-theme input::placeholder,
+.light-theme textarea::placeholder {
+  color: #71717a !important;
+}
+
+.light-theme select option {
+  background-color: #ffffff !important;
+  color: #070709 !important;
+}
+
+/* Borders mapping */
+.light-theme .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-theme .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-theme .border-white\/15 {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.light-theme .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+
+.light-theme .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Solid background white overrides */
+.light-theme .bg-white {
+  background-color: #070709 !important;
+  color: #ffffff !important;
+}
+
+.light-theme .text-black {
+  color: #ffffff !important;
+}
+
+.light-theme .shadow-white\/5,
+.light-theme .shadow-white\/10,
+.light-theme .shadow-white\/20 {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+.light-theme .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Hovers on items */
+.light-theme .hover\:bg-white\/5:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.light-theme .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-theme .hover\:bg-white:hover {
+  background-color: #070709 !important;
+  color: #ffffff !important;
+}
+
+.light-theme .hover\:text-black:hover {
+  color: #ffffff !important;
+}
+
+.light-theme .hover\:border-white\/20:hover {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light-theme .hover\:border-white\/25:hover,
+.light-theme .hover\:border-white\/30:hover {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Gradient backgrounds inside CTA or Proposal boxes */
+.light-theme .bg-gradient-to-br.from-\[\#09090C\].to-\[\#030305\] {
+  background: linear-gradient(to bottom right, #f2f2f6, #e5e5eb) !important;
+}
+
+/* Highlight boxes */
+.light-theme .bg-gradient-to-br.from-\[\#09090C\].to-\[\#030305\] .text-white {
+  color: #070709 !important;
+}
+
+.light-theme .bg-white\/20 {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light-theme .bg-black\/85,
+.light-theme .bg-black\/80 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Modal text descriptions inside overlays */
+.light-theme .fixed.inset-0.z-50 {
+  color: #070709 !important;
+}
+
+/* SVG icons or graphics color defaults */
+.light-theme .text-white\/5 {
+  color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.light-theme .text-white\/10 {
+  color: rgba(0, 0, 0, 0.08) !important;
+}
+
+
