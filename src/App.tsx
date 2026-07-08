@@ -7,7 +7,6 @@ import ProjectsView from "./components/ProjectsView";
 import TestimonialsView from "./components/TestimonialsView";
 import JoinView from "./components/JoinView";
 import AIAssistantModal from "./components/AIAssistantModal";
-import MitraganLogo from "./components/MitraganLogo";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>(Tab.Home);
@@ -21,25 +20,34 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-[#070709] bg-grid-pattern text-white flex flex-col font-sans selection:bg-white/20 selection:text-white transition-colors duration-500 ${
-      theme === "light" ? "light-theme" : ""
-    }`}>
-      
+    <div className={`min-h-screen bg-[#070709] bg-grid-pattern text-white flex flex-col font-sans selection:bg-white/20 selection:text-white transition-colors duration-500 ${theme === "light" ? "light-theme" : ""
+      }`}>
+
       {/* Navigation Header */}
       <header className="sticky top-0 z-40 bg-[#070709]/80 backdrop-blur-md border-b border-white/5 px-4 md:px-8 py-4 transition-colors duration-500">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
-          <div 
+          <div
             onClick={() => {
               setActiveTab(Tab.Home);
               window.scrollTo({ top: 0, behavior: "smooth" });
-            }} 
+            }}
             className="flex items-center gap-2 cursor-pointer group"
           >
-            <MitraganLogo showText={false} size={32} theme={theme} />
-            <span className="font-display font-medium tracking-[0.2em] text-sm text-white group-hover:text-white/80 transition-colors flex items-center">
-              M I T R<span className="font-light mx-[0.05em] relative -top-[0.05em]">Λ</span>G<span className="font-light mx-[0.05em] relative -top-[0.05em]">Λ</span>N
-            </span>
+            <div className="flex flex-row items-center gap-2">
+              <img
+                src="/mitragan_cent_logo.png"
+                alt="Mitragan"
+                className={`w-11 h-11 object-contain transition-all duration-300 ${theme === "light" ? "" : "invert"
+                  }`}
+              />
+              <img
+                src="/mitragan_word.png"
+                alt="MITRAGAN"
+                className={`h-6 object-contain transition-all duration-300 ${theme === "light" ? "" : "invert"
+                  }`}
+              />
+            </div>
           </div>
 
           {/* Navigation Links */}
@@ -52,11 +60,10 @@ export default function App() {
                   // Clear prefilled context unless explicitly set
                   if (tab !== Tab.Join) setPrefilledJob("");
                 }}
-                className={`px-4.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer ${
-                  activeTab === tab
-                    ? "bg-white text-black font-semibold shadow-md shadow-white/10"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                }`}
+                className={`px-4.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer ${activeTab === tab
+                  ? "bg-white text-black font-semibold shadow-md shadow-white/10"
+                  : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
               >
                 {tab === Tab.Join ? "Join Mitragan" : tab}
               </button>
@@ -68,11 +75,10 @@ export default function App() {
             {/* Elegant Day/Night Theme Toggle */}
             <button
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className={`p-2 rounded-xl border transition-all duration-300 flex items-center justify-center cursor-pointer hover:scale-[1.05] ${
-                theme === "light"
-                  ? "bg-black/5 border-black/10 text-black hover:bg-black/10"
-                  : "bg-[#0F0F12] border-white/10 text-white hover:bg-white/10 hover:border-white/20"
-              }`}
+              className={`p-2 rounded-xl border transition-all duration-300 flex items-center justify-center cursor-pointer hover:scale-[1.05] ${theme === "light"
+                ? "bg-black/5 border-black/10 text-black hover:bg-black/10"
+                : "bg-[#0F0F12] border-white/10 text-white hover:bg-white/10 hover:border-white/20"
+                }`}
               title={theme === "light" ? "Switch to Night Mode" : "Switch to Day Mode"}
               aria-label="Toggle theme"
             >
@@ -101,11 +107,10 @@ export default function App() {
                 setActiveTab(tab);
                 if (tab !== Tab.Join) setPrefilledJob("");
               }}
-              className={`text-[9px] font-mono uppercase tracking-widest py-1 px-2.5 rounded ${
-                activeTab === tab
-                  ? "text-white bg-white/5 border border-white/10 font-bold"
-                  : "text-gray-500"
-              }`}
+              className={`text-[9px] font-mono uppercase tracking-widest py-1 px-2.5 rounded ${activeTab === tab
+                ? "text-white bg-white/5 border border-white/10 font-bold"
+                : "text-gray-500"
+                }`}
             >
               {tab === Tab.Join ? "Careers" : tab}
             </button>
@@ -150,11 +155,19 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
           {/* Col 1: Branding Signature */}
           <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left justify-center md:justify-start">
-            <MitraganLogo showText={false} size={44} theme={theme} />
+            <img
+              src="/mitragan_cent_logo.png"
+              alt="Mitragan"
+              className={`w-11 h-11 object-contain transition-all duration-300 ${theme === "light" ? "" : "invert"
+                }`}
+            />
             <div className="space-y-1">
-              <span className="font-display font-medium tracking-[0.2em] text-sm text-white block">
-                M I T R<span className="font-light mx-[0.05em] relative -top-[0.05em]">Λ</span>G<span className="font-light mx-[0.05em] relative -top-[0.05em]">Λ</span>N STUDIO
-              </span>
+              <img
+                src="/mitragan_word.png"
+                alt="MITRAGAN"
+                className={`h-4 object-contain transition-all duration-300 ${theme === "light" ? "" : "invert"
+                  }`}
+              />
               <p className="text-[11px] text-gray-500 leading-relaxed max-w-xs mx-auto md:mx-0">
                 An elite engineering agency partnering with pioneering teams to compile precision systems, beautiful interfaces, and secure server pipelines.
               </p>
@@ -186,7 +199,7 @@ export default function App() {
           {/* Subtle Outer Pulsing Wave */}
           <span className="absolute inset-0 rounded-full bg-white/20 animate-ping pointer-events-none" />
           <Sparkles className="w-5 h-5" />
-          
+
           {/* Text Tooltip */}
           <span className="absolute right-14 bg-[#0A0A0D] border border-white/10 text-white font-mono text-[9px] uppercase tracking-widest py-1.5 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">
             AI Project Architect
