@@ -43,8 +43,16 @@
 }
 
 /* Light Theme / Day Mode Overrides */
-.light-theme {
+body {
+  background-color: #070709;
+  transition: background-color 0.5s ease;
+}
+
+body.light-theme {
   background-color: #f8f8fa !important;
+}
+
+.light-theme {
   color: #070709 !important;
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, Shield, Sun, Moon } from "lucide-react";
 import { Tab } from "./types";
@@ -7,6 +7,7 @@ import ProjectsView from "./components/ProjectsView";
 import TestimonialsView from "./components/TestimonialsView";
 import JoinView from "./components/JoinView";
 import AIAssistantModal from "./components/AIAssistantModal";
+import ThreeBackground from "./components/ThreeBackground";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>(Tab.Home);
@@ -14,14 +15,26 @@ export default function App() {
   const [prefilledJob, setPrefilledJob] = useState("");
   const [theme, setTheme] = useState<"light" | "dark">("dark");
 
+  // Synchronize the HTML body class with active theme
+  useEffect(() => {
+    if (theme === "light") {
+      document.body.classList.add("light-theme");
+    } else {
+      document.body.classList.remove("light-theme");
+    }
+  }, [theme]);
+
   const handleSelectApply = (jobTitle: string) => {
     setPrefilledJob(jobTitle);
     setActiveTab(Tab.Join);
   };
 
   return (
-    <div className={`min-h-screen bg-[#070709] bg-grid-pattern text-white flex flex-col font-sans selection:bg-white/20 selection:text-white transition-colors duration-500 ${theme === "light" ? "light-theme" : ""
+    <div className={`min-h-screen bg-grid-pattern text-white flex flex-col font-sans selection:bg-white/20 selection:text-white transition-colors duration-500 ${theme === "light" ? "light-theme" : ""
       }`}>
+
+      {/* Global 3D Interactive Background */}
+      <ThreeBackground theme={theme} />
 
       {/* Navigation Header */}
       <header className="sticky top-0 z-40 bg-[#070709]/80 backdrop-blur-md border-b border-white/5 px-4 md:px-8 py-4 transition-colors duration-500">
